@@ -5,9 +5,8 @@ public class Pratice {
         for (int i = 1; i < (1 << arr.length) ; i++) {
             int sum = 0;
             for (int j = 0; j < arr.length; j++) {
-                if ((i & (1 << j)) == 1) {
+                if ((i & (1 << j)) != 0) {
                     sum += arr[j];
-                    System.out.print(arr[j]+" ");
                 }
             }
             if (sum ==0){

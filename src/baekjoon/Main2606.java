@@ -29,6 +29,19 @@ public class Main2606 {
         }
     }
 
+    //재귀버전
+    static public void dfs(int v) {
+        if (!visited[v]) {
+            visited[v] = true;
+            count++;
+            for (int u = 1; u <= N; u++) {
+                if (arr[v][u] == 1 && !visited[u]) {
+                    dfs(u);
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) throws Exception {
         System.setIn(new FileInputStream("res/baekjoon/2606.txt"));
 
@@ -49,7 +62,7 @@ public class Main2606 {
             arr[to][from] = 1;
         }
 
-        dfs();
+        dfs(1);
         System.out.println(count);
     }
 }

@@ -1,4 +1,4 @@
-package baekjoon;
+package study;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 public class Main1969 {
 
     public static void main(String[] args) throws Exception {
-        System.setIn(new FileInputStream("res/baekjoon/1969.txt"));
+        System.setIn(new FileInputStream("res/study/1969.txt"));
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());

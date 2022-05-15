@@ -18,6 +18,7 @@ public class MainE {
         while (!stack.isEmpty()) {
             boolean flag = true;
             int v = stack.pop();
+            visited[v] = 1;
             if (map.get(v) != null) {
                 for (int i = 0; i < map.get(v).size(); i++) {
                     int u = map.get(v).get(i);
@@ -28,9 +29,7 @@ public class MainE {
                         stack.push(u);
                     }
                 }
-            }
-
-            if (flag) {
+            } else {
                 answer = "yes";
                 break;
             }

@@ -9,17 +9,16 @@ public class Main1620 {
 
     static int N;
     static int M;
-    static Node[] nodes_index;  // index를 키값으로 가짐
-    static MyHashTable ht_data;   // data를 키값으로 가짐
+    static MyHashTable ht;
 
     private static class Node {
-        int index;
-        String data;
+        String key;
+        String value;
         Node next;
 
-        public Node(int index, String data) {
-            this.index = index;
-            this.data = data;
+        public Node(String key, String value) {
+            this.key = key;
+            this.value = value;
         }
     }
 
@@ -48,11 +47,11 @@ public class Main1620 {
             return hash % capacity;
         }
 
-        void insert(String key, int data) {
+        void insert(String key, String value) {
             int hash = getHash(key);
             int index = converToIndex(hash);
 
-            Node newNode = new Node(data, key);
+            Node newNode = new Node(key, value);
             if (heads[index] == null) {
                 heads[index] = newNode;
                 tails[index] = newNode;
@@ -62,18 +61,18 @@ public class Main1620 {
             }
         }
 
-        int find(String key) {
+        String find(String key) {
             int hash = getHash(key);
             int index = converToIndex(hash);
 
             Node node = heads[index];
 
             while (node != null) {
-                if (node.data.equals(key)) return node.index;
+                if (node.key.equals(key)) return node.value;
                 node = node.next;
             }
 
-            return -1;
+            return null;
         }
     }
 
@@ -87,29 +86,21 @@ public class Main1620 {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
-        nodes_index = new Node[N + 1];
-        ht_data = new MyHashTable(100000);
+        ht = new MyHashTable(100000);
 
         for (int i = 1; i < N + 1; i++) {
-            String data = br.readLine();
-            Node newNode = new Node(i, data);
+            String data1 = "" + i;
+            String data2 = br.readLine();
 
-            nodes_index[i] = newNode;
-            ht_data.insert(data, i);
+            ht.insert(data1, data2);
+            ht.insert(data2, data1);
         }
 
         for (int i = 0; i < M; i++) {
             String s = br.readLine();
-            int n = s.charAt(0) - '0';
 
-            // 숫자인 경우
-            if (n >= 0 && n < 10) {
-                String result = nodes_index[Integer.parseInt(s)].data;
-                System.out.println(result);
-            } else {
-                int result = ht_data.find(s);
-                System.out.println(result);
-            }
+            String result = ht.find(s);
+            System.out.println(result);
         }
     }
 }

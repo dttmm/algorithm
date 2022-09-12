@@ -1,61 +1,63 @@
 package swea.swea1768;
 
 class UserSolution {
-	public final static int N = 4;
-	static int[] arr1 = { 0, 1, 2, 3 };
-	static int[] arr2 = { 4, 5, 6, 7 };
-	static int[] arr3 = { 8, 9 };
-	static int sum1;
-	static int sum2;
-	static int sum3;
+	static Node head;
+	static Node tail;
 	static int[] tr;
-	static int[] answer;
-	static boolean flag;
 	static boolean[] visited;
 
-	// 배열중에서 S나B의 개수만큼 선택
-	// type : arr1, arr2, arr3인지
-	public void findElement(int type, int[] arr, int sum, int k, int start) {
-		if (k == sum) {
-			if (type == 1) {
-				findElement(2, arr2, sum1 + sum2, k, 0);
-			} else if (type == 2) {
-				findElement(3, arr3, sum1 + sum2 + sum3, k, 0);
+	static class Node {
+		int[] arr;
+		Node next;
+
+		public Node() {
+			arr = new int[4];
+		}
+	}
+
+	static void createList(int k) {
+		if (k == 4) {
+			Node newNode = new Node();
+			for (int i = 0; i < 4; i++) {
+				newNode.arr[i] = tr[i];
+			}
+			if (head == null) {
+				head = newNode;
+				tail = newNode;
 			} else {
-				Solution.Result result = Solution.query(tr);
-				sum = result.strike + result.ball;
-				if (sum == 4) {
-					flag = true;
-				}
+				tail.next = newNode;
+				tail = newNode;
 			}
 		} else {
-			for (int i = start; i < arr.length; i++) {
-				tr[k] = arr[i];
-				findElement(type, arr, sum, k + 1, start + 1);
-				if (flag)
-					return;
+			for (int i = 0; i < 10; i++) {
+				if (!visited[i]) {
+					visited[i] = true;
+					tr[k] = i;
+					createList(k + 1);
+					visited[i] = false;
+				}
 			}
 		}
 	}
 
-	public void findAnswer(int k) {
-		if (k == 4) {
-			Solution.Result result = Solution.query(answer);
-			if (result.strike == 4) {
-				flag = true;
-			}
-		} else {
-			for (int i = 0; i < 4; i++) {
-				if (!visited[i]) {
-					visited[i] = true;
-					answer[k] = tr[i];
-					findAnswer(k + 1);
-					visited[i] = false;
-				}
-				if (flag)
-					return;
-			}
+	static Solution.Result myQuery(int[] targetArr, int[] guess) {
+		Solution.Result result = new Solution.Result();
+
+		result.strike = 0;
+		result.ball = 0;
+		int[] count = new int[10];
+
+		for (int i = 0; i < 4; i++) {
+			count[targetArr[i]]++;
 		}
+
+		for (int idx = 0; idx < 4; ++idx)
+			if (guess[idx] == targetArr[idx])
+				result.strike++;
+			else if (count[guess[idx]] > 0)
+				result.ball++;
+
+		return result;
 	}
 
 	public void doUserImplementation(int guess[]) {
@@ -64,26 +66,35 @@ class UserSolution {
 		// The array of guess[] is a return array that
 		// is your guess for what digits[] would be.
 
+		head = null;
+		tail = null;
 		tr = new int[4];
-		flag = false;
+		visited = new boolean[10];
 
-		Solution.Result result = Solution.query(arr1);
-		sum1 = result.strike + result.ball;
+		createList(0);
 
-		result = Solution.query(arr2);
-		sum2 = result.strike + result.ball;
+		while (true) {
+			int[] targetArr = head.arr;
+			Solution.Result result = Solution.query(targetArr);
 
-		sum3 = 4 - sum1 - sum2;
+			if (result.strike == 4) {
+				for (int i = 0; i < 4; i++) {
+					guess[i] = targetArr[i];
+				}
+				return;
+			}
 
-		findElement(1, arr1, sum1, 0, 0);
+			for (Node node = head; node.next != null;) {
+				Solution.Result result2 = myQuery(targetArr, node.next.arr);
 
-		answer = new int[4];
-		visited = new boolean[4];
-		flag = false;
-		findAnswer(0);
+				if (result.strike == result2.strike && result.ball == result2.ball) {
+					node = node.next;
+				} else {
+					node.next = node.next.next;
+				}
+			}
 
-		for (int i = 0; i < 4; i++) {
-			guess[i] = answer[i];
+			head = head.next;
 		}
 	}
 }

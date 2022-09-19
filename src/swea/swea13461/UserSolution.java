@@ -1,112 +1,103 @@
 package swea.swea13461;
 
-import java.util.HashMap;
-import java.util.Map;
-
 class UserSolution {
-	final int MAX_N = 10000;
-	final int MAX_M = 10;
-	static int N;
-	static int M;
-	static char[][][] images;
-	static Map<String, Image> map;
-	static int[] tr;
-	static int answerId;
+    final static int MAX_N = 10000;
+    final int MAX_M = 10;
+    static int N;
+    static int M;
+    static Node tree;
 
-	private static class Image {
-		int id;
-		String key;
+    static int answer_id;
+    static int answer_limit;
 
-		public Image(int id, String key) {
-			this.id = id;
-			this.key = key;
-		}
-	}
+    private static class Node {
+        char c;
+        Node[] next = new Node[2];
+        boolean isEnd = false;
+        int id = MAX_N + 1;
+    }
 
-	void init(int N, int M, char mImageList[][][]) {
-		this.N = N;
-		this.M = M;
-		this.images = mImageList;
-		map = new HashMap<String, Image>();
+    void init(int N, int M, char mImageList[][][]) {
+        this.N = N;
+        this.M = M;
+        tree = new Node();
 
-		for (int k = 0; k < N; k++) {
-			String s = "";
-			for (int i = 0; i < M; i++) {
-				for (int j = 0; j < M; j++) {
-					char c = mImageList[k][i][j];
+        for (int k = 0; k < N; k++) {
+            Node currentNode = tree;
 
-					s += c;
-				}
-			}
+            for (int i = 0; i < M; i++) {
+                for (int j = 0; j < M; j++) {
+                    char c = mImageList[k][i][j];
 
-			boolean isAlready = map.containsKey(s);
-			if (!isAlready) {
-				Image newImage = new Image(k + 1, s);
-				map.put(s, newImage);
-			}
-		}
-	}
+                    Node newNode = new Node();
+                    if (c == 0) {
+                        newNode.c = 0;
+                    } else {
+                        newNode.c = 1;
+                    }
 
-	int findImage(char mImage[][]) {
-		answerId = MAX_N + 1;
+                    if (currentNode.next[c] == null) {
+                        currentNode.next[c] = newNode;
+                    }
 
-		String s = "";
-		for (int i = 0; i < M; i++) {
-			for (int j = 0; j < M; j++) {
-				char c = mImage[i][j];
+                    currentNode = currentNode.next[c];
+                }
+            }
+            currentNode.isEnd = true;
+            if (k + 1 < currentNode.id) {
+                currentNode.id = k + 1;
+            }
+        }
+    }
 
-				s += c;
-			}
-		}
+    int findImage(char mImage[][]) {
+        answer_id = MAX_N + 1;
+        answer_limit = 2;
 
-		boolean isAlready = map.containsKey(s);
+        Node currentNode = tree;
 
-		if (isAlready) {
-			Image image = map.get(s);
-			answerId = image.id;
-		} else {
-			tr = new int[1];
-			per(0, 0, 1, s);
+        String s = "";
 
-			// 1개 불일치 하는 것이 없는 경우
-			if (answerId > MAX_N) {
-				tr = new int[2];
-				per(0, 0, 2, s);
-			}
-		}
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < M; j++) {
+                char c = mImage[i][j];
 
-		return answerId;
-	}
+                s += c;
+            }
+        }
 
-	static void per(int k, int start, int R, String s) {
-		if (k == R) {
-			char[] cArray = s.toCharArray();
-			for (int i = 0; i < R; i++) {
-				int index = tr[i];
+        solve(currentNode, 0, s, 0);
 
-				char c = cArray[index];
-				if (c == 1) {
-					cArray[index] = 0;
-				} else {
-					cArray[index] = 1;
-				}
-			}
-			s = String.valueOf(cArray);
+        return answer_id;
+    }
 
-			boolean isAlready = map.containsKey(s);
+    static void solve(Node currentNode, int current_limit, String s, int index) {
+        if (currentNode == null)
+            return;
 
-			if (isAlready) {
-				Image image = map.get(s);
-				int newId = image.id;
-				if (newId < answerId) {
-					answerId = newId;
-				}
-			}
-		} else {
-			for (int i = start; i < M * M; i++) {
-				tr[k] = i;
-				per(k + 1, start + 1, R, s);
-			}
-		}
-	}
+        if (current_limit < answer_limit) {
+            if (currentNode.isEnd) {
+                answer_limit = current_limit;
+                answer_id = MAX_N + 1;
+                if (currentNode.id < answer_id)
+                    answer_id = currentNode.id;
+            } else {
+                char c = s.charAt(index);
+                Node node = currentNode.next[c];
+                Node otherNode = currentNode.next[1 - c];
+
+                solve(node, current_limit, s, index + 1);
+                solve(otherNode, current_limit + 1, s, index + 1);
+            }
+        } else if (current_limit == answer_limit) {
+            if (currentNode.isEnd) {
+                if (currentNode.id < answer_id)
+                    answer_id = currentNode.id;
+            } else {
+                char c = s.charAt(index);
+                Node node = currentNode.next[c];
+                solve(node, current_limit, s, index + 1);
+            }
+        }
+    }
 }

@@ -2,7 +2,7 @@ package programmers.lv0;
 
 import java.util.*;
 
-class Solution {
+class 옹알이1 {
 
     String[] arr = {"aya", "ye", "woo", "ma"};
     Map<String, Boolean> map;

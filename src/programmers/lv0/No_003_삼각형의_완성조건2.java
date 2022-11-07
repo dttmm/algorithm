@@ -1,8 +1,6 @@
 package programmers.lv0;
 
-import java.util.*;
-
-class 삼각형의_완성조건2 {
+class No_003_삼각형의_완성조건2 {
     public int solution(int[] sides) {
         int answer = 0;
 

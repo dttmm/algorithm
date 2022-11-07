@@ -1,6 +1,6 @@
 package programmers.lv0;
 
-class 겹치는_선분의_길이 {
+class No_005_겹치는_선분의_길이 {
 
     int[] arr;
 

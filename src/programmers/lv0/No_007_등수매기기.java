@@ -2,7 +2,7 @@ package programmers.lv0;
 
 import java.util.*;
 
-public class 등수매기기 {
+public class No_007_등수매기기 {
 
     private class Node implements Comparable<Node> {
         int score;

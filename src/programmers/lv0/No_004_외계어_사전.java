@@ -2,7 +2,7 @@ package programmers.lv0;
 
 import java.util.*;
 
-class 외계어_사전 {
+class No_004_외계어_사전 {
 
     int N;                      // spell의 길이
     int R;                      // N개중 R개를 뽑는다

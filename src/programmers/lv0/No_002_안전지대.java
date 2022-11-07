@@ -1,8 +1,6 @@
 package programmers.lv0;
 
-import java.util.*;
-
-class 안전지대 {
+class No_002_안전지대 {
 
     int N;
     boolean[][] visited;

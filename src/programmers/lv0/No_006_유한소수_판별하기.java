@@ -1,6 +1,6 @@
 package programmers.lv0;
 
-public class 유한소수_판별하기 {
+public class No_006_유한소수_판별하기 {
 
     int gcd(int a, int b) {
         int rest = b % a;

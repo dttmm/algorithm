@@ -1,14 +1,15 @@
 package algorithm;
 
 import java.io.FileInputStream;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class Solution0000 {
 
     public static void main(String[] args) throws Exception {
         System.setIn(new FileInputStream("res/algorithm/input_day00_0000.txt"));
 
-        Scanner sc = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int T;
         T = 10;
         for (int test_case = 1; test_case <= T; test_case++) {

@@ -1,4 +1,4 @@
-package 대회.YEAR_2023;
+package 대회.YEAR_2023.쇼미더코드_3회차;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -62,7 +62,7 @@ public class MainB {
     }
 
     public static void main(String[] args) throws Exception {
-        System.setIn(new FileInputStream("src/대회/YEAR_2023/B.txt"));
+        System.setIn(new FileInputStream("src/대회/YEAR_2023/쇼미더코드_3회차/B.txt"));
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());

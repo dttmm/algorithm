@@ -15,7 +15,7 @@
 - 2022.03.13 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 백준 실버1 달성
 <br><br>
 
-- 2022.03.16 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 삼성 SW 역량테스트 모의 A+형 취득
+- 2022.03.15 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 삼성 SW 역량테스트 모의 A+형 취득
 <br><br>
 
 - 2022.04.04 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 백준 골드5 달성
@@ -25,7 +25,7 @@
 - 2022.09.10 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 백준 골드3 달성
 <br><br>
 
-- 2022.10.11 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 삼성 SW 역량테스트 B형 취득
+- 2022.09.24 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 삼성 SW 역량테스트 B형 취득
 <br><br>
 
 - 2022.10.31 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 프로그래머스 시작
@@ -35,4 +35,10 @@
 <br><br>
 
 - 2022.11.16 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 프로그래머스 lv.0 격파
+<br><br>
+
+- 2023.01.05 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 소프티어 시작
+<br><br>
+
+- 2023.01.17 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 백준 골드1 달성
 <br><br>

@@ -1,5 +1,8 @@
 # algorithm
 ## 개인 알고리즘 공부🔥🔥🔥
+### 백준: https://www.acmicpc.net/user/dbdjfdjqkqh1
+
+[![Solved.ac프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=dbdjfdjqkqh1)](https://solved.ac/dbdjfdjqkqh1)
 <br><br>
 
 - 2022.01.30 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 알고리즘 시작

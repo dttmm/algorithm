@@ -25,6 +25,12 @@ public class Main {
         int treeCount = (int) Math.pow(2, h + 1);
         tree = new int[treeCount];
 
+        // ++ 최소값 트리 만들 경우
+        // 모든 노드 MAX_VALUE로 초기화
+        for (int i = 1; i < treeCount; i++) {
+            tree[i] = Integer.MAX_VALUE;
+        }
+
         // 1.2 부모 노드값 채우기
         // 원본 배열을 트리의 리프노드에 채워 넣음
         // 리프노드의 시작 인덱스는 2^k임
@@ -52,6 +58,15 @@ public class Main {
         // 트리의 끝에서 부터 자신의 부모 노드와 값을 비교해서 최대값을 넣어주면 됨
         // ex) 원본 데이터가 {5, 8, 4, 3, 7, 2, 1, 6}인 경우
         // 트리는 { , 8, 8, 7, 8, 4, 7, 6, 5, 8, 4, 3, 7, 2, 1, 6}이 됨
+
+        // ++ 최소값 트리 초기화하는 경우
+        for (int i = treeCount - 1; i > 1; i -= 2) {    // i를 2씩 줄여서 불필요한 탐색 최소화
+            int n1 = tree[i];       // 현재 노드와
+            int n2 = tree[i - 1];   // 형제 노드 중
+
+            int parentIndex = i / 2;
+            tree[parentIndex] = Math.min(n1, n2);   // 둘 중 최소값으로 부모 설정
+        }
     }
 
 
@@ -89,6 +104,19 @@ public class Main {
         end = (end - 1) / 2;
 
         return sum(start, end, total);
+    }
+
+    // ++ 최소값 쿼리 구하는 경우
+    static int getMin(int start, int end, int min) {
+        if (start > end) return min;
+
+        if (start % 2 == 1) min = Math.min(min, tree[start]);
+        if (end % 2 == 0) min = Math.min(min, tree[end]);
+
+        start = (start + 1) / 2;
+        end = (end - 1) / 2;
+
+        return getMin(start, end, min);
     }
 
     // 3. 업데이트 하기

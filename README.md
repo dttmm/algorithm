@@ -48,3 +48,6 @@
 
 - 2023.01.30 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 원티드 쇼미더 코드 3회차 금손 뱃지 획득🥇
 <br><br>
+
+- 2023.04.20 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 백준 플래티넘5 달성
+  <br><br>

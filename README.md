@@ -51,3 +51,6 @@
 
 - 2023.04.20 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 백준 플래티넘5 달성
   <br><br>
+
+- 2023.07.07 &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 2023 현대모비스 알고리즘 경진대회 본선 진출👑
+  <br><br>

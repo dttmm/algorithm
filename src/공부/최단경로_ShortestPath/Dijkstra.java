@@ -1,10 +1,9 @@
-package 공부.알고리즘.다익스트라_Dijkstra;
+package 공부.최단경로_ShortestPath;
 
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class Main {
-
+public class Dijkstra {
     // 그래프에서 최단 거리를 구하는 알고리즘
     // 출발 노드와 모든 노드간의 최단 거리 탐색
     // 에지는 모두 양수인 것이 특징

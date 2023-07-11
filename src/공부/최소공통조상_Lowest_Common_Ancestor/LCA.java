@@ -1,11 +1,10 @@
-package 공부.알고리즘.최소공통조상;
+package 공부.최소공통조상_Lowest_Common_Ancestor;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class Main {
-
+public class LCA {
     static int N;                   // 노드의 개수
     static Node[] nodes;            // 노드의 정보 저장
     static List<Integer>[] lists;   // 인접 노드 정보 저장
@@ -76,6 +75,4 @@ public class Main {
 
         return a;
     }
-
-    // B. 빠르게 구하는 방법
 }

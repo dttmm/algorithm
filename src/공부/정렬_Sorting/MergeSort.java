@@ -1,8 +1,8 @@
-package 공부.알고리즘.병합정렬;
+package 공부.정렬_Sorting;
 
-// 병합정렬은 별도의 저장공간이 필요하기 때문에
-// 공간이 없다면 퀵소트 필요
-public class Main {
+public class MergeSort {
+    // 병합정렬은 별도의 저장공간이 필요하기 때문에
+    // 공간이 없다면 퀵소트 필요
 
     static int[] arr;       // 원본 배열
     static int[] sorted;    // 정렬된 상태를 저장할 배열
@@ -83,4 +83,3 @@ public class Main {
         }
     }
 }
-

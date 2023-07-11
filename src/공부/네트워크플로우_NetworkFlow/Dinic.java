@@ -1,10 +1,10 @@
-package 공부.알고리즘.네트워크플로우_NetworkFlow;
+package 공부.네트워크플로우_NetworkFlow;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class Main {
+public class Dinic {
     // 네트워크 플로우는 최대 유량을 계산하기 위한 것으로
     // BFS를 이용하는 에드몬드 카프(Edmonds-Karp), DFS를 이용하는 포드풀커슨(Ford-Fulkerson)이 있으며
     // 시간복잡도는 각각 O(V * E^2), O((V+E) * F) F:최대 유량

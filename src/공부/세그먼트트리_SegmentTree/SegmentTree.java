@@ -1,11 +1,8 @@
-package 공부.자료구조.세그먼트트리;
+package 공부.세그먼트트리_SegmentTree;
 
-/**
- 세그먼트 트리 원리 이해하고
- 나만의 세그먼트 트리 직접 구현하기
- */
-public class Main {
-
+// 세그먼트 트리 원리 이해하고
+// 나만의 세그먼트 트리 직접 구현하기
+public class SegmentTree {
     static int N;       // 원본 배열의 크기
     static int[] arr;   // 원본 배열
     static int[] tree;  // 트리 배열

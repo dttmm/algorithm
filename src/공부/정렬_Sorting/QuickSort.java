@@ -1,6 +1,6 @@
-package 공부.알고리즘.퀵정렬;
+package 공부.정렬_Sorting;
 
-public class Main {
+public class QuickSort {
 
     static int[] arr;
 

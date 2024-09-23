@@ -1,5 +1,4 @@
-#include <fstream>
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -9,5 +8,5 @@ int main() {
 	cin.tie(NULL);
 	cout.tie(NULL);
 
-	freopen("res/baekjoon/.txt", "r", stdin);
+	freopen("src/codetree/input.txt", "r", stdin);
 }

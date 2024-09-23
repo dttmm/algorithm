@@ -6,3 +6,4 @@ out
 x64
 algorithm.vcxproj
 algorithm.vcxproj.filters
+.vs
